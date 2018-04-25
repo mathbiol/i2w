@@ -1,6 +1,6 @@
 {
   "name": "i2w",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "i2workshop demo npm package",
   "main": "i2w.js",
   "scripts": {
