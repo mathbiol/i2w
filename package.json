@@ -1,0 +1,22 @@
+{
+  "name": "i2w",
+  "version": "1.0.0",
+  "description": "i2workshop demo npm package",
+  "main": "i2w.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathbiol/i2w.git"
+  },
+  "keywords": [
+    "i2workshop"
+  ],
+  "author": "Jonas Almeida <jalmeida@mathbiol.org> (http://jonasalmeida.info)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mathbiol/i2w/issues"
+  },
+  "homepage": "https://github.com/mathbiol/i2w#readme"
+}
