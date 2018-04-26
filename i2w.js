@@ -1,25 +1,7 @@
 console.log('i2w.js loaded :-)')
 
-i2w=function(){
-    return 'hello at '+Date()
-}
-i2w.ole=function(){   
-    return 'ole att '+Date()
-}
-
-console.log(i2w())
-console.log(i2w.ole())
-
-if(!typeof(define)){
-    define({
-        hello:i2w.hello,
-        hello:i2w.ole
-    }) 
-}
-
-if(!typeof(exports)){
-    exports.hello=i2w.hello
-    exports.hello=i2w.ole
+exports.hello = function(){
+    return 'Hello at '+Date()
 }
     
 
