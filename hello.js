@@ -1,3 +1,5 @@
 define({
-    hello: 'world'
+    hello: function(){
+        return 'hello world at '+Date()
+    }
 });
