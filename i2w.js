@@ -2,8 +2,7 @@ console.log('i2w.js loaded :-)')
 
 exports.hello = function(){
     return 'Hello at '+Date()
-}
-    
+}   
 
 /*
 http = require('http')
