@@ -1,5 +1,5 @@
 var hello = ()=>{
-    return 'hello world at '+Date()
+    return 'hello world at '+Date() +  Date().getTimezoneOffset(); //added timezone
 }
 
 if(typeof(define)!=='undefined'){
