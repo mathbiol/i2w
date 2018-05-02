@@ -1,5 +1,9 @@
-define({
-    hello: function(){
-        return 'hello world at '+Date()
-    }
-});
+var hello = ()=>{
+    return 'hello world at '+Date()
+}
+
+if(typeof(define)!=='undefined'){
+    define({
+        hello: hello
+    });
+}
