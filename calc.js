@@ -8,7 +8,7 @@ calcJS = (div)=>{
     div=div||document.createElement('div')
     // UI
     var h ='<h3>Calculator in plain JS</h3>'
-    h += '<p><textarea id="expression" style="color:maroon;width:100%;border-width=0px;font-size:large"></textarea> <br><button id="doit">=</button> <span id="result" style="color:green"></span></p>'
+    h += '<p><textarea id="expression" style="color:maroon;width:100%;border-width=0px;font-size:large"></textarea> <br><button id="doit" style="font-size:large">=</button> <span id="result" style="color:green;font-size:large"></span></p>'
     h += '<table>'
     h += '<tr><td>1</td><td>2</td><td>3</td><td>+</td></tr>'
     h += '<tr><td>4</td><td>5</td><td>6</td><td>-</td></tr>'
@@ -16,10 +16,10 @@ calcJS = (div)=>{
     h += '<tr><td>(</td><td>0</td><td>)</td><td>/</td></tr>'    
     //h += '<tr><td id="mem1"></td><td></td><td></td><td></td></tr>'
     h += '</table>'
-    h += '<p><button id="CLR"> CLR </button> <button id="mem"> Mem </button></p>'
+    h += '<p><button id="CLR"> CLR </button> <button id="Mem"> Mem </button></p>'
     h += '<p id="mem1" style="color:blue"></p>'
     div.innerHTML=h
-    document.body.appendChild(div)
+    
     // event listeners
     var expression = div.querySelector('#expression')
     expression.style.borderWidth='0px'
@@ -64,7 +64,12 @@ calcJS = (div)=>{
     }
     return div
 }
-setTimeout(calcJS,100)
+
+/*
+setTimeout(()=>{
+    document.body.appendChild(calcJS())
+},100)
+*/
 
 // 2 - Using Vue
 
@@ -72,5 +77,19 @@ setTimeout(calcJS,100)
 
 
 if(typeof(define)!='undefined'){
-    define(calcJS)
+    define({
+        calculator:(div)=>{
+            setTimeout(()=>{
+                calcJS(div)
+            },1000)
+        },
+        created:Date(),
+        url:'https://beta.observablehq.com/@jonasalmeida/i2w',
+        description:'showing how a div element encoded with a little math can be imported in Observable'
+        
+    })
+}else{
+    setTimeout(()=>{
+        document.body.appendChild(calcJS())
+    },100)
 }
