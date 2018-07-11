@@ -8,7 +8,7 @@ calcJS = (div)=>{
     div=div||document.createElement('div')
     // UI
     var h ='<h3>Calculator in plain JS</h3>'
-    h += '<p><textarea id="expression" style="color:maroon;width:100%;border-width=0px"></textarea> <br><button id="doit">=</button> <span id="result" style="color:green"></span></p>'
+    h += '<p><textarea id="expression" style="color:maroon;width:100%;border-width=0px;font-size:large"></textarea> <br><button id="doit">=</button> <span id="result" style="color:green"></span></p>'
     h += '<table>'
     h += '<tr><td>1</td><td>2</td><td>3</td><td>+</td></tr>'
     h += '<tr><td>4</td><td>5</td><td>6</td><td>-</td></tr>'
@@ -32,8 +32,13 @@ calcJS = (div)=>{
         }
         if(el.textContent.match(/^\d+$/)){
             el.style.color='blue'
+            el.style.backgroundColor='yellow'
+            el.style.border='solid'
+            el.style.textAlign='center'
         }else{
             el.style.color='maroon'
+            el.style.textAlign='center'
+            el.style.backgroundColor='silver'
         }
         el.onmouseover=()=>{
             el.style.cursor='hand'
@@ -57,25 +62,15 @@ calcJS = (div)=>{
     mem1.onmouseover=()=>{
         mem1.style.cursor="hand"
     }
-
-
     return div
 }
 setTimeout(calcJS,100)
+
 // 2 - Using Vue
 
+// ... later
 
-/*
-A = function(){
-    this.created=Date()
-    this.hello=(x)=>{
-        x=x||'person '
-        return 'hello '+x
-    }
-}
 
-A.ola = (x)=>{
-    x=x||'person '
-        return 'ola '+x
+if(typeof(define)!='undefined'){
+    define(calcJS)
 }
-*/
