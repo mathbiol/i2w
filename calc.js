@@ -7,7 +7,7 @@ console.log('calc.js loaded')
 calcJS = (div)=>{
     div=div||document.createElement('div')
     // UI
-    var h ='<h3>Calculator in plain JS</h3>'
+    var h ='<h3>Calculator in <a href="https://github.com/mathbiol/i2w/blob/master/calc.js" target="_blank" style="color:blue;background-color:yellow">plain JS</a>.</h3>'
     h += '<p><textarea id="expression" style="color:maroon;width:100%;border-width=0px;font-size:large"></textarea> <br><button id="doit" style="font-size:large">=</button> <span id="result" style="color:green;font-size:large"></span></p>'
     h += '<table>'
     h += '<tr><td>1</td><td>2</td><td>3</td><td>+</td></tr>'
