@@ -1,21 +1,18 @@
 console.log('calc.js loaded')
 
-// create ca calculator
-
-// 1 - Vanila JS
+// note how only "vanila JS" is used (no frameworks) to assemble a self-contained calculator in a div element
 
 calcJS = (div)=>{
     div=div||document.createElement('div')
     // UI
     var h ='<h3>Calculator in <a href="https://github.com/mathbiol/i2w/blob/master/calc.js" target="_blank" style="color:blue;background-color:yellow">plain JS</a>.</h3>'
-    h += '<p><textarea id="expression" style="color:maroon;width:100%;border-width=0px;font-size:large"></textarea> <br><button id="doit" style="font-size:large">=</button> <span id="result" style="color:green;font-size:large"></span></p>'
+    h += '<p><textarea id="expression" style="color:maroon;background-color:WhiteSmoke;width:100%;border-width=0px;font-size:large"></textarea> <br><button id="doit" style="font-size:large">=</button> <span id="result" style="color:green;font-size:large"></span></p>'
     h += '<table>'
     h += '<tr><td>1</td><td>2</td><td>3</td><td>+</td></tr>'
     h += '<tr><td>4</td><td>5</td><td>6</td><td>-</td></tr>'
     h += '<tr><td>7</td><td>8</td><td>9</td><td>*</td></tr>'
     h += '<tr><td>(</td><td>0</td><td>)</td><td>/</td></tr>'
     h += '<tr><td>&pi;</td><td>.</td><td>log</td><td>^</td></tr>'   
-    //h += '<tr><td id="mem1"></td><td></td><td></td><td></td></tr>'
     h += '</table>'
     h += '<p><button id="CLR"> CLR </button> <button id="Mem"> Mem </button> <button id="Bck"> Bck </button></p>'
     h += '<p id="mem1" style="color:blue"></p>'
@@ -55,9 +52,7 @@ calcJS = (div)=>{
         }
         el.onmouseover=()=>{
             el.style.cursor='hand'
-            //debugger
-        }
-        
+        }       
     })
     
     div.querySelector('#doit').onclick=()=>{
@@ -81,18 +76,8 @@ calcJS = (div)=>{
     return div
 }
 
-/*
-setTimeout(()=>{
-    document.body.appendChild(calcJS())
-},100)
-*/
-
-// 2 - Using Vue
-
-// ... later
-
-
-if(typeof(define)!='undefined'){
+// AMD module 
+if(typeof(define)!='undefined'){ // if being called as a module
     define({
         calculator:(div)=>{
             setTimeout(()=>{
@@ -104,8 +89,8 @@ if(typeof(define)!='undefined'){
         description:'showing how a div element encoded with a little math can be imported in Observable'
         
     })
-}else{
+}else{ 
     setTimeout(()=>{
-        document.body.appendChild(calcJS())
+        document.body.appendChild(calcJS()) // <-- try this line in the console multiple times for independent calculators:
     },100)
 }
