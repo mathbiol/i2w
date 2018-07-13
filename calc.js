@@ -13,10 +13,11 @@ calcJS = (div)=>{
     h += '<tr><td>1</td><td>2</td><td>3</td><td>+</td></tr>'
     h += '<tr><td>4</td><td>5</td><td>6</td><td>-</td></tr>'
     h += '<tr><td>7</td><td>8</td><td>9</td><td>*</td></tr>'
-    h += '<tr><td>(</td><td>0</td><td>)</td><td>/</td></tr>'    
+    h += '<tr><td>(</td><td>0</td><td>)</td><td>/</td></tr>'
+    h += '<tr><td>&pi;</td><td>.</td><td>log</td><td>^</td></tr>'   
     //h += '<tr><td id="mem1"></td><td></td><td></td><td></td></tr>'
     h += '</table>'
-    h += '<p><button id="CLR"> CLR </button> <button id="Mem"> Mem </button></p>'
+    h += '<p><button id="CLR"> CLR </button> <button id="Mem"> Mem </button> <button id="Bck"> Bck </button></p>'
     h += '<p id="mem1" style="color:blue"></p>'
     div.innerHTML=h
     
@@ -28,9 +29,21 @@ calcJS = (div)=>{
     div.querySelectorAll('td').forEach((el)=>{
         el.width='20px'
         el.onclick=()=>{
-            expression.value += el.textContent
+            var str=el.textContent
+            switch(str) {
+                case 'π':
+                    str='Math.PI'
+                    break;
+                case 'log':
+                    str='Math.log10('
+                    break;
+                case '^':
+                    str='**'
+                    break;
+            }
+            expression.value += str
         }
-        if(el.textContent.match(/^\d+$/)){
+        if(el.textContent.match(/^[\d\.]+$/)){
             el.style.color='blue'
             el.style.backgroundColor='yellow'
             el.style.border='solid'
@@ -55,6 +68,9 @@ calcJS = (div)=>{
     }
     div.querySelector('#Mem').onclick=()=>{
         mem1.textContent=result.textContent
+    }
+    div.querySelector('#Bck').onclick=()=>{
+        expression.value=expression.value.slice(0,-1)
     }
     mem1.onclick=()=>{
         expression.value+=mem1.textContent
