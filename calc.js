@@ -48,7 +48,7 @@ calcJS = (div)=>{
         }else{
             el.style.color='maroon'
             el.style.textAlign='center'
-            el.style.backgroundColor='silver'
+            el.style.backgroundColor='orange'
         }
         el.onmouseover=()=>{
             el.style.cursor='hand'
